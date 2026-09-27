@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans TC", "PingFang TC", "Noto Sans", sans-serif;
+  --font-serif: "Noto Serif TC", "Songti TC", serif;
+  --color-paper: #f3eadf;
+  --color-sheet: #fffaf3;
+  --color-ink: #1c1915;
+  --color-muted: #6f675c;
+  --color-line: #e3d6c6;
+  --color-cinnabar: #d24a32;
+  --color-cinnabar-ink: #fff7f2;
+  --radius-card: 1.25rem;
+  --shadow-border:
+    0px 0px 0px 1px rgba(28, 25, 21, 0.06),
+    0px 1px 2px -1px rgba(28, 25, 21, 0.06),
+    0px 8px 24px -12px rgba(28, 25, 21, 0.12);
+  --shadow-border-hover:
+    0px 0px 0px 1px rgba(28, 25, 21, 0.1),
+    0px 1px 2px -1px rgba(28, 25, 21, 0.08),
+    0px 10px 28px -12px rgba(28, 25, 21, 0.16);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    text-wrap: pretty;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  img {
+    outline: 1px solid rgba(28, 25, 21, 0.1);
+    outline-offset: -1px;
+  }
+
+  ::selection {
+    background: #f0c2b8;
+    color: var(--color-ink);
+  }
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-border);
+}
+
+@utility shadow-card-hover {
+  box-shadow: var(--shadow-border-hover);
+}
+
+[data-seal="custom"] { background: var(--color-sheet); }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
